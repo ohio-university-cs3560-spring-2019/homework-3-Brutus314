@@ -1,24 +1,31 @@
+/** \file */
+
 #include <iostream>
 #include <vector>
 #include <cmath>
 
+/**
+* \brief Finds the standard deviation of an array of integers
+* \param a: The array of integers in question
+* \param n: The size of the array, or the amount of numbers to consider
+* \return The standard deviation of the first n numbers in a
+*/
 
-
-int deviation( int* a, int n )
+double deviation( int* a, int n )
 {
-	int sum;
-	for(size_t i = 0; i <= v.size(); i++)
+	int sum = 0;
+	for(size_t i = 0; i < n; i++)
 	{
-		sum += v[i];
-	} 
-	double mean = sum /= v.size();
-	double stddev = 0;
-	for(size_t i = 0; i <= v.size() -1; i++)
-	{
-		double stddev = stddev + (v[i] - mean) * (v[i] - mean); 
+		sum += a[i];
 	}
-	stddev /= v.size();
-	if( stddev = 0)
+	double mean = static_cast<double>(sum) / n;
+	double stddev = 0;
+	for(size_t i = 0; i < n; i++)
+	{
+		stddev = stddev + (a[i] - mean) * (a[i] - mean);
+	}
+	stddev /= n;
+	if( stddev == 0)
 		std::cout << "Sigma is zero." << std::endl;
 	return sqrt(stddev);
 }
